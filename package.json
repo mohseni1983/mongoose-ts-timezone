@@ -1,12 +1,12 @@
 {
   "name": "mongoose-ts-timezone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package for fix timezone in mongoose schema",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "build" : "tsc"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "Seyyed Ali Mohseni",
