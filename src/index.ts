@@ -7,15 +7,15 @@ const getDateFields = (schema: mongoose.Schema)=>{
     })
 
 }
-module.exports = function (schema : mongoose.Schema,time_zone:string) {
+module.exports = function (schema : mongoose.Schema,) {
     const paths = getDateFields(schema)
-    //const offset = moment_tz().utcOffset() * 60 * 1000;
+    const offset = moment_tz().utcOffset() * 60 * 1000;
     const fixOffset = (doc:mongoose.Document)=>{
         for(let path of paths){
             const date = get(doc,path);
             if(date){
-               const fixedDate = moment_tz.tz(date,time_zone);
-               set(doc,path,fixedDate)
+               const fixedDate = date.valueOf() + offset;
+               set(doc,path,new Date(fixedDate))
             }
         }
     }
